@@ -24,29 +24,29 @@ class Listing extends PureComponent {
   }
 
   render() {
-    let item = this.props.item
+    let item = this.props.item;
     return (
-          <li
-            className="listing"
-            key={item.name}
-            onMouseEnter={() => this.setState({ style: { display: "block" } })}
-            onMouseLeave={() => this.setState({style: {display: 'none'}})}
-          >
-            <div className="listing-image-box">
-              <img src={item.gallery[0]} className="listing-image"></img>
-            </div>
-            <div className="listing-title">{item.name}</div>
-            <div className="listing-price">
-              {item.prices[0].currency.symbol}
-              {item.prices[0].amount}
-            </div>
-            <img
-              src={addButton}
-              className="add-button"
-              style={this.state.style}
-            ></img>
-          </li>
-
+      <li
+        className="listing"
+        key={item.name}
+        onMouseEnter={() => this.setState({ style: { display: "block" } })}
+        onMouseLeave={() => this.setState({ style: { display: "none" } })}
+      >
+        <div className="listing-image-box">
+          <img src={item.gallery[0]} className="listing-image"></img>
+        </div>
+        <div className="listing-title">{item.name}</div>
+        <div className="listing-price">
+          {item.prices[0].currency.symbol}
+          {item.prices[0].amount}
+        
+        <img
+          src={addButton}
+          className="add-button"
+          style={this.state.style}
+        ></img>
+        </div>
+      </li>
     );
   }
 }
