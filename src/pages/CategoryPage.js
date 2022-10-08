@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "../styles/categoryPage.css"
-import Listing from "../components/Listing";
+import Listings from "../components/Listings";
 
 
 class CategoryPage extends PureComponent {
@@ -12,7 +12,7 @@ class CategoryPage extends PureComponent {
             <>
             <h1 className="category-title">{this.props.category}</h1>
             {/* <div className="listing-container"> */}
-            <Listing state={this.props.state}/>
+            <Listings state={this.props.state}/>
             {/* </div> */}
             </>
           )

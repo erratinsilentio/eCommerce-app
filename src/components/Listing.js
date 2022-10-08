@@ -24,11 +24,8 @@ class Listing extends PureComponent {
   }
 
   render() {
-    let products = this.chosenCategory();
-    console.log(products);
+    let item = this.props.item
     return (
-      <ul className="listing-container">
-        {products.map((item) => (
           <li
             className="listing"
             key={item.name}
@@ -49,8 +46,7 @@ class Listing extends PureComponent {
               style={this.state.style}
             ></img>
           </li>
-        ))}
-      </ul>
+
     );
   }
 }
