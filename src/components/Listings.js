@@ -5,8 +5,6 @@ import Listing from "./Listing";
 import addButton from "../styles/svg/add-to-cart.svg";
 
 class Listings extends PureComponent {
-
-
   chosenCategory() {
     if (this.props.state.chosenCategory === "all") {
       return this.props.state.productsAll;
@@ -23,7 +21,14 @@ class Listings extends PureComponent {
     let products = this.chosenCategory();
     return (
       <ul className="listing-container">
-        {products.map(product => <Listing key={product.id} item={product}/>)}
+        {products.map((product) => (
+          <Listing
+            key={product.id}
+            item={product}
+            chooseProduct={this.props.chooseProduct}
+            state={this.props.state}
+          />
+        ))}
       </ul>
     );
   }

@@ -17,12 +17,18 @@ class App extends PureComponent {
       currencies: [],
       categories: [],
       chosenCategory: "all",
+      chosenCurrency: 0,
       productsAll: [],
       productsClothes: [],
       productsTech: [],
+      displayProduct: "",
+      getByID: getProductByID,
+      changeCurrency: this.changeCurrency,
     };
 
     this.displayCategory = this.displayCategory.bind(this);
+    this.chooseProduct = this.chooseProduct.bind(this);
+    this.changeCurrency = this.changeCurrency.bind(this)
   }
 
   componentDidMount() {
@@ -33,14 +39,36 @@ class App extends PureComponent {
         productsAll: result[0].products,
         productsClothes: result[1].products,
         productsTech: result[2].products,
-        currency: "USD",
+        currency: 0,
       })
     );
-    getProductByID("ps-5").then(result => console.log(result))
   }
 
   displayCategory(name) {
     this.setState({ chosenCategory: name });
+    console.log(this.state.displayProduct)
+  }
+  chooseProduct(name) {
+    this.setState({ displayProduct: name });
+    console.log(this.state.displayProduct)
+  }
+
+  changeCurrency(name){
+    if(name==="USD") {
+      this.setState({currency: 0})
+    }
+    if(name==="GBP") {
+      this.setState({currency: 1})
+    }
+    if(name==="AUD") {
+      this.setState({currency: 2})
+    }
+    if(name==="JPY") {
+      this.setState({currency: 3})
+    }
+    if(name==="RUB") {
+      this.setState({currency: 4})
+    }
   }
 
   render() {
@@ -62,9 +90,18 @@ class App extends PureComponent {
           >
             <Route
               index
-              element={<CategoryPage category={this.state.chosenCategory} state={this.state}/>}
+              element={
+                <CategoryPage
+                  category={this.state.chosenCategory}
+                  state={this.state}
+                  chooseProduct={this.chooseProduct}
+                />
+              }
             />
-            <Route path="products" element={<ProductPage />} />
+            <Route
+              path="products"
+              element={<ProductPage state={this.state} />}
+            />
             <Route path="cart" element={<CartPage />} />
             <Route path="*" element={<NoPage />} />
           </Route>

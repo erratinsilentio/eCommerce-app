@@ -24,22 +24,25 @@ class Listing extends PureComponent {
   }
 
   render() {
+    let chooseProduct = this.props.chooseProduct;
     let item = this.props.item;
+    let state = this.props.state;
     return (
-      <Link to={"/products/"+item.id} className="link">
+      <Link to={"/products"} className="link">
       <li
         className="listing"
-        key={item.name}
+        key={item.id}
         onMouseEnter={() => this.setState({ style: { display: "block" } })}
         onMouseLeave={() => this.setState({ style: { display: "none" } })}
+        onClick={() => chooseProduct(item.id)}
       >
         <div className="listing-image-box">
           <img src={item.gallery[0]} className="listing-image"></img>
         </div>
         <div className="listing-title">{item.name}</div>
         <div className="listing-price">
-          {item.prices[0].currency.symbol}
-          {item.prices[0].amount}
+          {item.prices[state.chosenCurrency].currency.symbol}
+          {item.prices[state.chosenCurrency].amount}
         
         <img
           src={addButton}
