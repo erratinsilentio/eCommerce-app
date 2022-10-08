@@ -26,6 +26,7 @@ class Listing extends PureComponent {
   render() {
     let item = this.props.item;
     return (
+      <Link to={"/products/"+item.id} className="link">
       <li
         className="listing"
         key={item.name}
@@ -47,6 +48,7 @@ class Listing extends PureComponent {
         ></img>
         </div>
       </li>
+      </Link>
     );
   }
 }

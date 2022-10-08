@@ -21,7 +21,6 @@ class Listings extends PureComponent {
 
   render() {
     let products = this.chosenCategory();
-    console.log(products);
     return (
       <ul className="listing-container">
         {products.map(product => <Listing key={product.id} item={product}/>)}

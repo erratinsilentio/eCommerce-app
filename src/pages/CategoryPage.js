@@ -11,9 +11,7 @@ class CategoryPage extends PureComponent {
         return (
             <>
             <h1 className="category-title">{this.props.category}</h1>
-            {/* <div className="listing-container"> */}
             <Listings state={this.props.state}/>
-            {/* </div> */}
             </>
           )
     }

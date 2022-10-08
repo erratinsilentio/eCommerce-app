@@ -12,23 +12,29 @@ class Layout extends PureComponent {
           <div className="header-container">
             <ul className="category-list">
               {categories.map((item) => (
-                <li
-                  key={item.name}
-                  className="category-list-cell"
-                  onClick={() => this.props.changeCategories(item.name)}
-                >
-                  {item.name}
-                </li>
+                <Link to="/" className="link">
+                  <li
+                    key={item.name}
+                    className="category-list-cell"
+                    onClick={() => this.props.changeCategories(item.name)}
+                  >
+                    {item.name}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>
           <div className="header-container">
-            <img src={shop_logo} className="shop-logo"></img>
+            <Link to="/" className="link">
+              <img src={shop_logo} className="shop-logo"></img>
+            </Link>
           </div>
 
           <div className="header-container side-menu">
             <a className="side-menu-btn">$</a>
-            <a className="side-menu-btn">cart</a>
+            <Link to="/cart" className="side-menu-btn">
+              cart
+            </Link>
           </div>
         </div>
         <Outlet />

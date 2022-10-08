@@ -1,6 +1,6 @@
 import React, { PureComponent, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { getCategories, getCurrencies } from "./data/getData";
+import { getCategories, getCurrencies, getProductByID } from "./data/getData";
 import { render } from "@testing-library/react";
 import { responsePathAsArray } from "graphql";
 import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
@@ -36,6 +36,7 @@ class App extends PureComponent {
         currency: "USD",
       })
     );
+    getProductByID("ps-5").then(result => console.log(result))
   }
 
   displayCategory(name) {
@@ -46,7 +47,7 @@ class App extends PureComponent {
     if (!this.state.categories.length) {
       return <h1>loading...</h1>;
     }
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <BrowserRouter>
         <Routes>

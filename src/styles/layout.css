@@ -64,8 +64,15 @@ body{
     margin-right: 10px;
     text-align: center;
     transition-duration: 0.15s;
+    text-decoration: none;
+    color: black;
 }
 
 .side-menu-btn:hover{
     border-bottom: 2px solid green;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }

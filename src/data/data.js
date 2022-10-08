@@ -44,10 +44,40 @@ const GET_CATEGORIES = gql`
   }
 `;
 
-
+const GET_PRODUCT_BY_ID = (id) => {
+  return gql`{
+    product(id : "${id}"){
+      name
+      id
+      category
+      inStock
+      description
+      brand
+      gallery
+      attributes{
+       name
+        id
+        type
+        items{
+          id
+          value
+          displayValue
+        }
+      }
+      prices{
+        currency{
+          label
+          symbol
+        }
+        amount
+        
+      }  
+    }
+}`;
+};
 
 const URL = 'http://localhost:4000/';
 
 
 
-export  {GET_CATEGORIES, GET_CURRENCIES };
+export  {GET_CATEGORIES, GET_CURRENCIES, GET_PRODUCT_BY_ID };

@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_CURRENCIES } from "./data";
+import { GET_CATEGORIES, GET_CURRENCIES, GET_PRODUCT_BY_ID } from "./data";
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const URL = 'http://localhost:4000/';
@@ -31,5 +31,14 @@ const getCurrencies = async () => {
 
   return currencies;
 }
+
+const getProductByID = async (id) => {
+  let res = await client.query({
+    query: GET_PRODUCT_BY_ID(id)
+  })
+  let data = await res;
+  let product = data.data.product
+  return product;
+}
   
-export {getCategories, getCurrencies}
+export {getCategories, getCurrencies, getProductByID}
