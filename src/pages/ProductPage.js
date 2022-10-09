@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import "../styles/productPage.css"
 
 class ProductPage extends PureComponent {
   constructor(props) {
@@ -10,7 +11,6 @@ class ProductPage extends PureComponent {
 
   componentDidMount() {
     let state = this.props.state;
-
     state
       .getByID(state.displayProduct)
       .then((result) => this.setState({ product: result }));
@@ -26,9 +26,20 @@ class ProductPage extends PureComponent {
     }
     return (
       <>
-        <h1>product page</h1>
-        <h2>{this.props.state.displayProduct}</h2>
-        <h3>{product.name}</h3>
+        <div className="product-container">
+          <div className="gallery-container">
+            <div className="gallery-slider"></div>
+            <div className="gallery-display"></div>
+          </div>
+          <div className="info-container">
+            <div className="title-container"></div>
+            <div className="size-container"></div>
+            <div className="color-container"></div>
+            <div className="price container"></div>
+            <button className="add-to-cart"></button>
+            <div className="description-container"></div>
+          </div>
+        </div>
       </>
     );
   }

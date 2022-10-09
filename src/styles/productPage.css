@@ -1,0 +1,73 @@
+.product-container{
+    width: 90vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    outline: 1px solid black;
+}
+
+.gallery-container{
+    width: 55vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    outline: 1px solid black;
+
+}
+
+.gallery-slider{
+    width: 10vw;
+    height: 75vh;
+    display: flex;
+    margin-top: 2.5vh;
+    flex-direction: column;
+    outline: 1px solid black;
+}
+
+.gallery-display{
+    width: 40vw;
+    height: 70vh;
+    margin-top: 2.5vh;
+    outline: 1px solid black;
+}
+
+.info-container{
+    width: 40vw;
+    height: 80vh;
+    flex-direction: column;
+    outline: 1px solid black;
+
+}
+
+.title-container{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+    margin-top: 2.5vh;
+}
+.size-container{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+}
+.color-container{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+}
+.price-container{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+}
+.add-to-cart{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+}
+.description-container{
+    width: 30vw;
+    height: 15vh;
+    outline: 1px solid black;
+}
