@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "../styles/listing.css";
-import addButton from "../styles/svg/add-to-cart.svg";
+import "../../styles/listing.css";
+import addButton from "../../styles/svg/add-to-cart.svg";
 
 class Listing extends PureComponent {
   constructor(props) {

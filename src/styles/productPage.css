@@ -6,6 +6,11 @@
     outline: 1px solid black;
 }
 
+.right-side{
+    display: flex;
+    flex-direction: column;
+}
+
 .gallery-container{
     width: 55vw;
     height: 80vh;
@@ -22,19 +27,29 @@
     display: flex;
     margin-top: 2.5vh;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    outline: 1px solid black;
+    overflow: scroll;
+}
+
+.gallery-slide{
+    width: 8vw;
+    height: 8vw;
+    margin-top: 1vw;
     outline: 1px solid black;
 }
 
 .gallery-display{
     width: 40vw;
-    height: 70vh;
+    height: 60vh;
     margin-top: 2.5vh;
     outline: 1px solid black;
 }
 
 .info-container{
     width: 40vw;
-    height: 80vh;
+    height: 50vh;
     flex-direction: column;
     outline: 1px solid black;
 
@@ -42,7 +57,7 @@
 
 .title-container{
     width: 30vw;
-    height: 15vh;
+    height: 12vh;
     outline: 1px solid black;
     margin-top: 2.5vh;
 }
@@ -51,9 +66,37 @@
     height: 15vh;
     outline: 1px solid black;
 }
+
+.size-buttons{
+    width: 30vw;
+    height: 8vh;
+    outline: 1px solid black;
+}
+.size-button{
+    width: 7vw;
+    height: 5vw;
+    outline: 1px solid black;
+
+}
 .color-container{
     width: 30vw;
-    height: 15vh;
+    height: 12vh;
+    outline: 1px solid black;
+}
+
+.color-buttons{
+    width: 30vw;
+    height: 7vh;
+    outline: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.color-button{
+    width: 5vw;
+    height: 5vw;
     outline: 1px solid black;
 }
 .price-container{
@@ -63,7 +106,7 @@
 }
 .add-to-cart{
     width: 30vw;
-    height: 15vh;
+    height: 7vh;
     outline: 1px solid black;
 }
 .description-container{

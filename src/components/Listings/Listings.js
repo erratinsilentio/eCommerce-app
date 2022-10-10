@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "../styles/listing.css";
+import "../../styles/listing.css";
 import Listing from "./Listing";
-import addButton from "../styles/svg/add-to-cart.svg";
+import addButton from "../../styles/svg/add-to-cart.svg";
 
 class Listings extends PureComponent {
   chosenCategory() {

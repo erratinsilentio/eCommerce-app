@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
-import "../styles/productPage.css"
+import "../styles/productPage.css";
+import Gallery from "../components/Product_Gallery/GalleryContainer";
+import Info from "../components/Product_Info/index";
 
 class ProductPage extends PureComponent {
   constructor(props) {
@@ -21,23 +23,17 @@ class ProductPage extends PureComponent {
 
     console.log(product);
 
-    if(product.name===0){
-        return <h1>Loading...</h1>
+    if (product.name === 0) {
+      return <h1>Loading...</h1>;
     }
     return (
       <>
         <div className="product-container">
-          <div className="gallery-container">
-            <div className="gallery-slider"></div>
-            <div className="gallery-display"></div>
-          </div>
-          <div className="info-container">
-            <div className="title-container"></div>
-            <div className="size-container"></div>
-            <div className="color-container"></div>
-            <div className="price container"></div>
-            <button className="add-to-cart"></button>
-            <div className="description-container"></div>
+          <Gallery />
+          <div className="right-side">
+          <Info />
+          <button className="add-to-cart"></button>
+          <div className="description-container"></div>
           </div>
         </div>
       </>

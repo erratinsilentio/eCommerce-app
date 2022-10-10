@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "../styles/categoryPage.css"
-import Listings from "../components/Listings";
+import Listings from "../components/Listings/Listings";
 
 
 class CategoryPage extends PureComponent {
