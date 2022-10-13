@@ -3,81 +3,112 @@
     height: 80vh;
     display: flex;
     flex-direction: row;
-    outline: 1px solid black;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
 }
 
 .right-side{
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .gallery-container{
     width: 55vw;
-    height: 80vh;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    outline: 1px solid black;
+    align-items: flex-start;
 
 }
 
 .gallery-slider{
     width: 10vw;
-    height: 75vh;
+    height: auto;
     display: flex;
-    margin-top: 2.5vh;
+    margin-top: 1.5vh;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    outline: 1px solid black;
-    overflow: scroll;
 }
 
 .gallery-slide{
-    width: 8vw;
-    height: 8vw;
-    margin-top: 1vw;
-    outline: 1px solid black;
+    width: 6vw;
+    height: 6vw;
+    margin-top: 1vh;
+    object-fit: cover;
 }
 
 .gallery-display{
-    width: 40vw;
-    height: 60vh;
+    width: 30vw;
+    height: auto;
     margin-top: 2.5vh;
-    outline: 1px solid black;
+    overflow: hidden;
+    object-fit: contain;
 }
 
 .info-container{
-    width: 40vw;
-    height: 50vh;
+    width: 30vw;
+    height: auto;
     flex-direction: column;
-    outline: 1px solid black;
-
+    align-items: center;
+    justify-content: center;
 }
 
 .title-container{
     width: 30vw;
-    height: 12vh;
-    outline: 1px solid black;
+    height: 10vh;
     margin-top: 2.5vh;
 }
-.size-container{
+
+.title{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.subtitle{
+    font-size: 1.4rem;
+}
+
+.attribute-container{
     width: 30vw;
     height: 15vh;
-    outline: 1px solid black;
+    margin-top: 2vh;
 }
 
-.size-buttons{
+.attribute{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.attribute-buttons{
     width: 30vw;
     height: 8vh;
-    outline: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 .size-button{
-    width: 7vw;
-    height: 5vw;
+    width: 6vw;
+    height: 4vw;
     outline: 1px solid black;
+    margin-right: 2vh;
+    text-align: center;
+    line-height: 4vw;
 
 }
+.size-button:hover{
+    background-color: black;
+    color: white;
+}
+.size-selected{
+    background-color: black;
+    color: white;
+}
+
 .color-container{
     width: 30vw;
     height: 12vh;
@@ -95,22 +126,50 @@
 }
 
 .color-button{
-    width: 5vw;
-    height: 5vw;
-    outline: 1px solid black;
+    width: 3vw;
+    height: 3vw;
+    margin-right: 2vh;
+    padding: 2px;
+}
+
+.color-button:hover{
+    border-style: double;
+    border: 1px solid green;
 }
 .price-container{
     width: 30vw;
     height: 15vh;
     outline: 1px solid black;
 }
+
+.price{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.price-value{
+    margin-top: 1vh;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 .add-to-cart{
     width: 30vw;
-    height: 7vh;
-    outline: 1px solid black;
+    min-height: 7vh;
+    border: 0px;
+    background-color: #4ade80;
+    color: white;
+    margin-top: 2vh;
+    font-size: 1.2rem;
+
+    display: block;
+}
+
+.add-to-cart:hover{
+    background-color: #22c55e;
 }
 .description-container{
     width: 30vw;
-    height: 15vh;
-    outline: 1px solid black;
+    height: auto;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
 }

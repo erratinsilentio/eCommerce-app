@@ -4,7 +4,11 @@ class Slide extends PureComponent{
 
 
     render(){
-        return <div className="gallery-slide"></div>
+        let changeImage = this.props.changeImage;
+        if(this.props.length===0){
+            return <h1>loading</h1>
+        }
+        return <img src={this.props.image} className="gallery-slide" onMouseEnter={()=> changeImage(this.props.image)}></img>
     }
 }
 
