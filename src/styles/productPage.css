@@ -26,12 +26,13 @@
 
 .gallery-slider{
     width: 10vw;
-    height: auto;
+    height: 60vh;
     display: flex;
     margin-top: 1.5vh;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow: scroll;
 }
 
 .gallery-slide{
@@ -50,7 +51,7 @@
 }
 
 .info-container{
-    width: 30vw;
+    width: 35vw;
     height: auto;
     flex-direction: column;
     align-items: center;
@@ -58,7 +59,7 @@
 }
 
 .title-container{
-    width: 30vw;
+    width: 35vw;
     height: 10vh;
     margin-top: 2.5vh;
 }
@@ -153,7 +154,7 @@
     font-weight: bold;
 }
 .add-to-cart{
-    width: 30vw;
+    width: 25vw;
     min-height: 7vh;
     border: 0px;
     background-color: #4ade80;

@@ -8,13 +8,16 @@ body{
     background-color: #fafafa;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90vw;
+    min-width: 90vw;
+    max-width: 90vw;
     height: 10vh;
     padding: 0px;
 }
@@ -58,6 +61,7 @@ body{
     justify-content: flex-end;
 }
 
+
 .side-menu-btn{
     line-height: 10vh;
     width: 7.5vh;
@@ -66,13 +70,40 @@ body{
     transition-duration: 0.15s;
     text-decoration: none;
     color: black;
+    position: relative;
 }
 
 .side-menu-btn:hover{
-    border-bottom: 2px solid green;
+    /* border-bottom: 2px solid green; */
 }
 
 .link{
     text-decoration: none;
     color: black;
+}
+
+.currency-menu{
+    margin-top: 0px;
+    width: 10vh;
+    height: 10vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.curr-list-item{
+    list-style: none;
+    height: 5vh;
+    width: 10vh;
+    outline: 1px solid black;
+    text-align: center;
+    line-height: 5vh;
+}
+
+.curr-list-item:hover{
+    background-color: black;
+    color: wheat;
 }

@@ -64,3 +64,13 @@
     margin-right: 1vw;
     margin-bottom: 2vw;
 }
+
+.out-of-stock{
+    position: absolute;
+    opacity: 0.4;
+    background-color: aliceblue;
+    height: 15vw;
+    width: 18vw;
+    line-height: 15vw;
+    text-align: center;
+}

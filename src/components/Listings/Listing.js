@@ -29,28 +29,31 @@ class Listing extends PureComponent {
     let state = this.props.state;
     return (
       <Link to={"/products"} className="link">
-      <li
-        className="listing"
-        key={item.id}
-        onMouseEnter={() => this.setState({ style: { display: "block" } })}
-        onMouseLeave={() => this.setState({ style: { display: "none" } })}
-        onClick={() => chooseProduct(item.id)}
-      >
-        <div className="listing-image-box">
-          <img src={item.gallery[0]} className="listing-image"></img>
-        </div>
-        <div className="listing-title">{item.name}</div>
-        <div className="listing-price">
-          {item.prices[state.chosenCurrency].currency.symbol}
-          {item.prices[state.chosenCurrency].amount}
-        
-        <img
-          src={addButton}
-          className="add-button"
-          style={this.state.style}
-        ></img>
-        </div>
-      </li>
+        <li
+          className="listing"
+          key={item.id}
+          onMouseEnter={() => this.setState({ style: { display: "block" } })}
+          onMouseLeave={() => this.setState({ style: { display: "none" } })}
+          onClick={() => chooseProduct(item.id)}
+        >
+          <div className="listing-image-box">
+            <img src={item.gallery[0]} className="listing-image"></img>
+            {item.inStock ? null : (
+              <div className="out-of-stock">out of stock</div>
+            )}
+          </div>
+          <div className="listing-title">{item.name}</div>
+          <div className="listing-price">
+            {item.prices[state.chosenCurrency].currency.symbol}
+            {item.prices[state.chosenCurrency].amount}
+
+            <img
+              src={addButton}
+              className="add-button"
+              style={this.state.style}
+            ></img>
+          </div>
+        </li>
       </Link>
     );
   }

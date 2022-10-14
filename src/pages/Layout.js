@@ -4,8 +4,17 @@ import "../styles/layout.css";
 import shop_logo from "../styles/svg/shop-logo.svg";
 
 class Layout extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currencyDisplay: "none",
+      cartDisplay: "none",
+    };
+  }
+
   render() {
     let categories = this.props.categories;
+    let changeCurr = this.props.changeCurrency;
     return (
       <>
         <div className="header">
@@ -31,7 +40,55 @@ class Layout extends PureComponent {
           </div>
 
           <div className="header-container side-menu">
-            <a className="side-menu-btn">$</a>
+            <a
+              className="side-menu-btn"
+              onMouseEnter={() => this.setState({ currencyDisplay: "block" })}
+              onMouseLeave={() => this.setState({ currencyDisplay: "none" })}
+            >
+              $
+              <ul
+                className="currency-menu"
+                style={{ display: this.state.currencyDisplay }}
+                onMouseEnter={() => this.setState({ currencyDisplay: "block" })}
+              >
+                <li
+                  key="0"
+                  className="curr-list-item"
+                  onClick={() => changeCurr(0)}
+                >
+                  $ USD
+                </li>
+                <li
+                  key="1"
+                  className="curr-list-item"
+                  onClick={() => changeCurr(1)}
+                >
+                  £ GBP
+                </li>
+                <li
+                  key="2"
+                  className="curr-list-item"
+                  onClick={() => changeCurr(2)}
+                >
+                  $ AUD
+                </li>
+                <li
+                  key="3"
+                  className="curr-list-item"
+                  onClick={() => changeCurr(3)}
+                >
+                  ¥ JPY
+                </li>
+                <li
+                  key="4"
+                  className="curr-list-item"
+                  onClick={() => changeCurr(4)}
+                >
+                  ₽ RUB
+                </li>
+              </ul>
+            </a>
+
             <Link to="/cart" className="side-menu-btn">
               cart
             </Link>

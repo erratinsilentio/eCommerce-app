@@ -13,6 +13,7 @@ class ProductPage extends PureComponent {
       gallery: [],
       attributes: [],
       prices: [],
+      currency: this.props.state.chosenCurrency,
     };
   }
 
@@ -28,15 +29,15 @@ class ProductPage extends PureComponent {
     );
   }
 
+  componentDidUpdate(){
+    this.setState({currency: this.props.state.chosenCurrency})
+  }
+
   render() {
     let product = this.state.product;
-
-    console.log(product);
-
     if (product.name === 0) {
       return <h1>Loading...</h1>;
     }
-
     return (
       <>
         <div className="product-container">

@@ -44,32 +44,12 @@ class App extends PureComponent {
     );
   }
 
-  displayCategory(name) {
-    this.setState({ chosenCategory: name });
-    console.log(this.state.displayProduct)
-  }
-  chooseProduct(name) {
-    this.setState({ displayProduct: name });
-    console.log(this.state.displayProduct)
-  }
+  displayCategory = (name) => this.setState({ chosenCategory: name });
+  
+  chooseProduct = (name) => this.setState({ displayProduct: name });
 
-  changeCurrency(name){
-    if(name==="USD") {
-      this.setState({currency: 0})
-    }
-    if(name==="GBP") {
-      this.setState({currency: 1})
-    }
-    if(name==="AUD") {
-      this.setState({currency: 2})
-    }
-    if(name==="JPY") {
-      this.setState({currency: 3})
-    }
-    if(name==="RUB") {
-      this.setState({currency: 4})
-    }
-  }
+  changeCurrency = (key) => this.setState({chosenCurrency: key});
+  
 
   render() {
     if (!this.state.categories.length) {
@@ -85,6 +65,7 @@ class App extends PureComponent {
               <Layout
                 categories={this.state.categories}
                 changeCategories={this.displayCategory}
+                changeCurrency={this.changeCurrency}
               />
             }
           >
