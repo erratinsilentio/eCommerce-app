@@ -18,7 +18,7 @@ class App extends PureComponent {
       productsAll: [],
       productsClothes: [],
       productsTech: [],
-      displayProduct: "",
+      displayProduct: localStorage.getItem("product"),
       getByID: getProductByID,
       changeCurrency: this.changeCurrency,
     };
@@ -43,16 +43,20 @@ class App extends PureComponent {
 
   displayCategory = (name) => this.setState({ chosenCategory: name });
   
-  chooseProduct = (name) => this.setState({ displayProduct: name });
+  chooseProduct = (name) => {
+    localStorage.setItem("product", name);
+    this.setState({ displayProduct: localStorage.getItem("product") });
+  }
 
   changeCurrency = (key) => this.setState({chosenCurrency: key});
   
 
   render() {
+    
     if (!this.state.categories.length) {
       return <h1>loading...</h1>;
     }
-    console.log(this.state.currencies);
+
     return (
       <BrowserRouter>
         <Routes>
