@@ -14,6 +14,16 @@ class ProductPage extends PureComponent {
       attributes: [],
       prices: [],
       currency: this.props.state.chosenCurrency,
+
+      pickedItem: {
+        id: "",
+        brand: "",
+        name: "",
+        price: null,
+        currency: "",
+        attributes: [],
+        quantity: 0,
+      },
     };
   }
 
@@ -25,32 +35,42 @@ class ProductPage extends PureComponent {
         gallery: result.gallery,
         attributes: result.attributes,
         prices: result.prices,
+
+        pickedItem: {
+          id: result.id,
+          brand: result.brand,
+          name: result.name,
+          price: result.prices[this.state.currency].amount,
+          currency: result.prices[this.state.currency].currency.label,
+          quantity: 1,
+        },
       })
     );
   }
 
-  componentDidUpdate(){
-    this.setState({currency: this.props.state.chosenCurrency})
+  componentDidUpdate() {
+    this.setState({ currency: this.props.state.chosenCurrency });
   }
 
   render() {
     let product = this.state.product;
+
     if (product.name === 0) {
       return <h1>Loading...</h1>;
     }
+    console.log(this.state);
+
     return (
-      <>
-        <div className="product-container">
-          <Gallery gallery={this.state.gallery} />
-          <div className="right-side">
-            <Info state={this.state} />
-            <Button className="add-to-cart">ADD TO CART</Button>
-            <div className="description-container">
-              {parse(`${product.description}`)}
-            </div>
+      <div className="product-container">
+        <Gallery gallery={this.state.gallery} />
+        <div className="right-side">
+          <Info state={this.state} />
+          <Button className="add-to-cart">ADD TO CART</Button>
+          <div className="description-container">
+            {parse(`${product.description}`)}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
