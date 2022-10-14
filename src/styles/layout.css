@@ -120,4 +120,8 @@ body{
     width: 35vh;
     height: 45vh;
     z-index: 999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
