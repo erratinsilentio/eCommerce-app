@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import "../styles/layout.css";
 import shop_logo from "../styles/svg/shop-logo.svg";
 import Cart from "../components/Dropdowns/Cart";
+import Currency from "../components/Dropdowns/Currency";
 
 class Layout extends PureComponent {
   constructor(props) {
@@ -18,7 +19,10 @@ class Layout extends PureComponent {
     let changeCurr = this.props.changeCurrency;
     return (
       <>
+       {/* HEADER */}
         <div className="header">
+
+          {/* CATEGORIES */}
           <div className="header-container">
             <ul className="category-list">
               {categories.map((item) => (
@@ -34,73 +38,49 @@ class Layout extends PureComponent {
               ))}
             </ul>
           </div>
+
+          {/* SHOP LOGO */}
           <div className="header-container">
             <Link to="/" className="link">
               <img src={shop_logo} className="shop-logo"></img>
             </Link>
           </div>
 
+          {/* DROPDOWNS */}
           <div className="header-container side-menu">
-            <a
+
+            {/* CURRENCY MENU */}
+            <div
               className="side-menu-btn"
               onMouseEnter={() => this.setState({ currencyDisplay: "block" })}
               onMouseLeave={() => this.setState({ currencyDisplay: "none" })}
             >
               $
-              <ul
-                className="currency-menu"
+              <Currency
                 style={{ display: this.state.currencyDisplay }}
-                onMouseEnter={() => this.setState({ currencyDisplay: "block" })}
-              >
-                <li
-                  key="0"
-                  className="curr-list-item"
-                  onClick={() => changeCurr(0)}
-                >
-                  $ USD
-                </li>
-                <li
-                  key="1"
-                  className="curr-list-item"
-                  onClick={() => changeCurr(1)}
-                >
-                  £ GBP
-                </li>
-                <li
-                  key="2"
-                  className="curr-list-item"
-                  onClick={() => changeCurr(2)}
-                >
-                  $ AUD
-                </li>
-                <li
-                  key="3"
-                  className="curr-list-item"
-                  onClick={() => changeCurr(3)}
-                >
-                  ¥ JPY
-                </li>
-                <li
-                  key="4"
-                  className="curr-list-item"
-                  onClick={() => changeCurr(4)}
-                >
-                  ₽ RUB
-                </li>
-              </ul>
-            </a>
+                changeCurr={changeCurr}
+              />
+            </div>
 
+            {/* CART MENU */}
             <div
               className="side-menu-btn cart-btn"
               onMouseEnter={() => this.setState({ cartDisplay: "block" })}
               onMouseLeave={() => this.setState({ cartDisplay: "none" })}
             >
-              <Link to="/cart" style={{textDecoration: "none", color: "black"}}>cart</Link>
+              <Link
+                to="/cart"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                cart
+              </Link>
               <Cart className="cart-menu" display={this.state.cartDisplay} />
             </div>
-            
+
           </div>
         </div>
+
+        {/* SHOP CONTENT */}
         <Outlet />
       </>
     );
