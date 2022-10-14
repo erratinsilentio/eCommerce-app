@@ -107,3 +107,17 @@ body{
     background-color: black;
     color: wheat;
 }
+
+.cart-btn{
+    position: relative;
+}
+
+.cart-menu{
+    position: absolute;
+    background-color: #fafafa;
+    outline: 1px solid black;
+    right: 1%;
+    width: 35vh;
+    height: 45vh;
+    z-index: 999;
+}

@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "../styles/layout.css";
 import shop_logo from "../styles/svg/shop-logo.svg";
+import Cart from "../components/Dropdowns/Cart";
 
 class Layout extends PureComponent {
   constructor(props) {
@@ -89,9 +90,15 @@ class Layout extends PureComponent {
               </ul>
             </a>
 
-            <Link to="/cart" className="side-menu-btn">
-              cart
-            </Link>
+            <div
+              className="side-menu-btn cart-btn"
+              onMouseEnter={() => this.setState({ cartDisplay: "block" })}
+              onMouseLeave={() => this.setState({ cartDisplay: "none" })}
+            >
+              <Link to="/cart" style={{textDecoration: "none", color: "black"}}>cart</Link>
+              <Cart className="cart-menu" display={this.state.cartDisplay} />
+            </div>
+            
           </div>
         </div>
         <Outlet />
