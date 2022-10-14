@@ -1,9 +1,6 @@
-import React, { PureComponent, Suspense } from "react";
+import React, { PureComponent } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getCategories, getCurrencies, getProductByID } from "./data/getData";
-import { render } from "@testing-library/react";
-import { responsePathAsArray } from "graphql";
-import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
 import ProductPage from "./pages/ProductPage";
 import CategoryPage from "./pages/CategoryPage";
 import CartPage from "./pages/CartPage";

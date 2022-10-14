@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import "../styles/productPage.css";
 import Gallery from "../components/Product_Gallery/GalleryContainer";
 import Info from "../components/Product_Info/index";
-import Button from "../components/Buttons/AddToCart";
+import Button from "../components/Buttons/Button";
 const parse = require("html-react-parser");
 
 class ProductPage extends PureComponent {
