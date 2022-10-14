@@ -52,7 +52,7 @@ class App extends PureComponent {
     if (!this.state.categories.length) {
       return <h1>loading...</h1>;
     }
-    // console.log(this.state);
+    console.log(this.state.currencies);
     return (
       <BrowserRouter>
         <Routes>
@@ -63,6 +63,7 @@ class App extends PureComponent {
                 categories={this.state.categories}
                 changeCategories={this.displayCategory}
                 changeCurrency={this.changeCurrency}
+                symbol={this.state.currencies[this.state.chosenCurrency].symbol}
               />
             }
           >

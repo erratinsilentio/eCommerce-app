@@ -55,7 +55,7 @@ class Layout extends PureComponent {
               onMouseEnter={() => this.setState({ currencyDisplay: "block" })}
               onMouseLeave={() => this.setState({ currencyDisplay: "none" })}
             >
-              $
+              {this.props.symbol}
               <Currency
                 style={{ display: this.state.currencyDisplay }}
                 changeCurr={changeCurr}
