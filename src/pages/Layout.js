@@ -4,6 +4,7 @@ import "../styles/layout.css";
 import shop_logo from "../styles/svg/shop-logo.svg";
 import Cart from "../components/Dropdowns/Cart";
 import Currency from "../components/Dropdowns/Currency";
+import Info from "../components/Product_Info";
 
 class Layout extends PureComponent {
   constructor(props) {
@@ -74,7 +75,7 @@ class Layout extends PureComponent {
               >
                 cart
               </Link>
-              <Cart className="cart-menu" display={this.state.cartDisplay} />
+              <Cart className="cart-menu" display={this.state.cartDisplay} cart={this.props.state.cart} />
             </div>
 
           </div>

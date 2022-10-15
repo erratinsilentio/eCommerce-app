@@ -51,7 +51,7 @@ class ProductPage extends PureComponent {
     );
   }
 
-  componentDidUpdate = () =>
+  componentDidUpdate = () => 
     this.setState({ currency: this.props.state.chosenCurrency });
 
   addPickedAtributes = (pick) => (this.state.pickedItem.attributes = pick);

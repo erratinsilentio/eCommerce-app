@@ -1,7 +1,10 @@
 import { React, PureComponent } from "react";
 import AttributeButton from "../Buttons/AttributeButton";
 
+
+
 class Attribute extends PureComponent {
+  
   render() {
     let attribute = this.props.attributes;
     let type = this.props.type;

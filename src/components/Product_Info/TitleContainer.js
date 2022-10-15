@@ -5,7 +5,7 @@ class Title extends PureComponent {
     let product = this.props.product;
     // console.log(product)
     return (
-      <div className="title-container">
+      <div className={"title-container "+this.props.className}>
         <div className="title">{product.brand}</div>
         <div className="subtitle">{product.name}</div>
       </div>

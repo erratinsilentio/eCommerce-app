@@ -79,6 +79,7 @@ class App extends PureComponent {
             path="/"
             element={
               <Layout
+                state={this.state}
                 categories={this.state.categories}
                 changeCategories={this.displayCategory}
                 changeCurrency={this.changeCurrency}
