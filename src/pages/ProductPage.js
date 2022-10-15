@@ -25,6 +25,8 @@ class ProductPage extends PureComponent {
         quantity: 0,
       },
     };
+
+    this.addPickedAtributes = this.addPickedAtributes.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +37,7 @@ class ProductPage extends PureComponent {
         gallery: result.gallery,
         attributes: result.attributes,
         prices: result.prices,
+        addPickedAtributes: this.addPickedAtributes,
 
         pickedItem: {
           id: result.id,
@@ -48,24 +51,28 @@ class ProductPage extends PureComponent {
     );
   }
 
-  componentDidUpdate() {
+  componentDidUpdate = () =>
     this.setState({ currency: this.props.state.chosenCurrency });
-  }
+
+  addPickedAtributes = (pick) => (this.state.pickedItem.attributes = pick);
 
   render() {
     let product = this.state.product;
+    let addToCart = this.props.state.addToCart;
 
     if (product.name === 0) {
       return <h1>Loading...</h1>;
     }
-    console.log(this.state);
 
     return (
-      <div className="product-container">
+      <div
+        className="product-container"
+        onClick={this.props.onClick}
+      >
         <Gallery gallery={this.state.gallery} />
         <div className="right-side">
           <Info state={this.state} />
-          <Button className="add-to-cart">ADD TO CART</Button>
+          <Button className="add-to-cart" onClick={() => addToCart(this.state.pickedItem)}>ADD TO CART</Button>
           <div className="description-container">
             {parse(`${product.description}`)}
           </div>

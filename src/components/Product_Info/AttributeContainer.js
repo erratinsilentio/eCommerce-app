@@ -18,7 +18,8 @@ class Attribute extends PureComponent {
                   key={item.id}
                   className="color-button"
                   style={{ backgroundColor: item.value }}
-                />
+                  onClick={() => addAtribute({type: type, value: item.value })}/>
+
               );
             }
             return (
@@ -26,7 +27,7 @@ class Attribute extends PureComponent {
                 key={item.id}
                 className="size-button"
                 size={item.value}
-                onClick={() => addAtribute({ value: item.value })}
+                onClick={() => addAtribute({ type: type, value: item.value })}
               />
             );
           })}

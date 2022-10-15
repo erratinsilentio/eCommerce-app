@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { PureComponent } from "react";
 
 class Slide extends PureComponent {

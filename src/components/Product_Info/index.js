@@ -12,25 +12,30 @@ class Info extends PureComponent {
     this.addAtribute = this.addAtribute.bind(this);
   }
 
+  // FUNCTION MAKES SURE YOU CAN CHOOSE ONLY ONE ATTRIBUTE OF THE TYPE
   addAtribute = (atr) => {
-    let sameItem = this.state.attributes.find(
+
+    let sameAtr = this.state.attributes.find(
       (item) => item.type === atr.type && item.value === atr.value
     );
-    let similarItem = this.state.attributes.find(
+    let sameTypeAtr = this.state.attributes.find(
       (item) => item.type === atr.type && item.value !== atr.value
     );
-    // eslint-disable-next-line no-unused-expressions
-    sameItem
+    
+    sameAtr
       ? console.log("same item exists")
-      : similarItem
+      : sameTypeAtr
       ? this.setState({
-          attributes: this.state.attributes.map((attribute) =>
-            attribute === similarItem ? atr : attribute
+          attributes: this.state.attributes.map((item) =>
+            item === sameTypeAtr ? atr : item
           ),
         })
-      : this.setState({ attributes: [...this.state.attributes, atr] });
+      : this.setState({ attributes: [...this.state.attributes, atr], }, () => {
+        console.log("state: ", this.state.attributes)
+        console.log("attribute ", atr)
+      });
 
-    console.log(this.state);
+    this.props.state.addPickedAtributes(this.state.attributes)
   };
 
   render() {
@@ -39,11 +44,9 @@ class Info extends PureComponent {
     let prices = this.props.state.prices;
     let currency = this.props.state.currency;
 
-    console.log(this.state);
     return (
       <div
         className="info-container"
-        onClick={() => console.log(this.state.currency)}
       >
         <Title product={product} />
         {attributes.map((attribute) => (

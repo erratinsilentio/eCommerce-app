@@ -6,26 +6,37 @@ import CategoryPage from "./pages/CategoryPage";
 import CartPage from "./pages/CartPage";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
+import { toHaveDisplayValue } from "@testing-library/jest-dom/dist/matchers";
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      // IMPORT DATA HERE //
       currencies: [],
       categories: [],
+      // CHANGING DISPLAYED CONTENT //
       chosenCategory: "all",
       chosenCurrency: 0,
+      // RE-ARRANGE IMPORTED PRODUCTS // 
       productsAll: [],
       productsClothes: [],
       productsTech: [],
+      // SAVE CLIDKED LISTING SO IT REMAINS AFTER RELOAD // 
       displayProduct: localStorage.getItem("product"),
+      // FETCH PRODUCT BY ID //
       getByID: getProductByID,
+      // HANDLE CURRENCY CHANGE //
       changeCurrency: this.changeCurrency,
+      // HANDLE CART //
+      cart: [],
+      addToCart: this.addToCart
     };
 
     this.displayCategory = this.displayCategory.bind(this);
     this.chooseProduct = this.chooseProduct.bind(this);
     this.changeCurrency = this.changeCurrency.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
@@ -40,7 +51,7 @@ class App extends PureComponent {
       })
     );
   }
-
+  
   displayCategory = (name) => this.setState({ chosenCategory: name });
   
   chooseProduct = (name) => {
@@ -49,6 +60,10 @@ class App extends PureComponent {
   }
 
   changeCurrency = (key) => this.setState({chosenCurrency: key});
+
+  addToCart = (item) => this.setState({cart: [...this.state.cart, item]}, () => {
+    console.log(this.state.cart)
+  })
   
 
   render() {
@@ -78,12 +93,13 @@ class App extends PureComponent {
                   category={this.state.chosenCategory}
                   state={this.state}
                   chooseProduct={this.chooseProduct}
+                  onClick={() => console.log(this.state.cart)}
                 />
               }
             />
             <Route
               path="products"
-              element={<ProductPage state={this.state} />}
+              element={<ProductPage state={this.state} onClick={() => console.log(this.state.cart)} />}
             />
             <Route path="cart" element={<CartPage />} />
             <Route path="*" element={<NoPage />} />

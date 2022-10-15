@@ -9,7 +9,7 @@ class Slider extends PureComponent{
         // console.log(gallery)
         return (
             <div className="gallery-slider">
-                {gallery.map(slide => <Slide changeImage={changeImage} image={slide} />)}
+                {gallery.map(slide => <Slide key={slide.id} changeImage={changeImage} image={slide} />)}
             </div>
         )
     }

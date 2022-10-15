@@ -8,7 +8,7 @@ class CategoryPage extends PureComponent {
     render(){
         return (
             <>
-            <h1 className="category-title">{this.props.category}</h1>
+            <h1 onClick={this.props.onClick} className="category-title">{this.props.category}</h1>
             <Listings state={this.props.state} chooseProduct={this.props.chooseProduct}/>
             </>
           )

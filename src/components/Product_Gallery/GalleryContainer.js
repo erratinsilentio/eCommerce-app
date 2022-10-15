@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { PureComponent } from "react";
 import Slide from "./Slide";
 import Slider from "./Slider";
