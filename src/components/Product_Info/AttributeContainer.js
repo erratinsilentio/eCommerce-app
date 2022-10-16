@@ -1,10 +1,14 @@
 import { React, PureComponent } from "react";
 import AttributeButton from "../Buttons/AttributeButton";
 
-
-
 class Attribute extends PureComponent {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedAtr: null,
+    };
+  }
+
   render() {
     let attribute = this.props.attributes;
     let type = this.props.type;
@@ -19,18 +23,34 @@ class Attribute extends PureComponent {
               return (
                 <AttributeButton
                   key={item.id}
-                  className="color-button"
+                  className={
+                    this.state.selectedAtr === item.value
+                      ? "color-button color-selected"
+                      : "color-button"
+                  }
                   style={{ backgroundColor: item.value }}
-                  onClick={() => addAtribute({type: type, value: item.value })}/>
-
+                  ifSelected={this.state.ifSelected}
+                  selected={this.state.selected}
+                  onClick={() => {
+                    addAtribute({ type: type, value: item.value });
+                    this.setState({ selectedAtr: item.value });
+                  }}
+                />
               );
             }
             return (
               <AttributeButton
                 key={item.id}
-                className="size-button"
+                className={
+                  this.state.selectedAtr === item.value
+                    ? "size-button size-selected"
+                    : "size-button"
+                }
                 size={item.value}
-                onClick={() => addAtribute({ type: type, value: item.value })}
+                onClick={() => {
+                  addAtribute({ type: type, value: item.value });
+                  this.setState({ selectedAtr: item.value });
+                }}
               />
             );
           })}

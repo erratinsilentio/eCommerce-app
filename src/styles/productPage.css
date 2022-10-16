@@ -108,9 +108,13 @@
 
 
 .size-selected{
-    /* background-color: black;
-    color: white; */
+    background-color: black;
+    color: white;
+}
+
+.color-selected{
     outline: 1.5px solid crimson;
+ 
 }
 
 .color-container{
