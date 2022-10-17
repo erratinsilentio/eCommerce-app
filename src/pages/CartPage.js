@@ -1,7 +1,26 @@
 import React, { PureComponent } from "react";
 import "../styles/cartPage.css"
+import AttributeButton from "../components/Buttons/AttributeButton";
 
 class CartPage extends PureComponent {
+    constructor(props){
+        super(props);
+        this.state = {
+            cart: [],
+        }
+    }
+    
+    async componentDidMount() {
+        let cart = this.props.state.cart
+        let getByID = this.props.state.getByID
+        let array = [];
+        await Promise.all(cart.map(async item => {
+            let newItem = await getByID(item.id)
+            array.push(newItem);
+        }))
+        this.state.cart = array
+        console.log(this.state.cart)
+    }
 
     render(){
         let cart = this.props.state.cart;
