@@ -18,11 +18,11 @@ class App extends PureComponent {
       // CHANGING DISPLAYED CONTENT //
       chosenCategory: "all",
       chosenCurrency: 0,
-      // RE-ARRANGE IMPORTED PRODUCTS // 
+      // RE-ARRANGE IMPORTED PRODUCTS //
       productsAll: [],
       productsClothes: [],
       productsTech: [],
-      // SAVE CLIDKED LISTING SO IT REMAINS AFTER RELOAD // 
+      // SAVE CLIDKED LISTING SO IT REMAINS AFTER RELOAD //
       displayProduct: localStorage.getItem("product"),
       // FETCH PRODUCT BY ID //
       getByID: getProductByID,
@@ -30,13 +30,13 @@ class App extends PureComponent {
       changeCurrency: this.changeCurrency,
       // HANDLE CART //
       cart: [],
-      addToCart: this.addToCart
+      addToCart: this.addToCart,
     };
 
     this.displayCategory = this.displayCategory.bind(this);
     this.chooseProduct = this.chooseProduct.bind(this);
-    this.changeCurrency = this.changeCurrency.bind(this)
-    this.addToCart = this.addToCart.bind(this)
+    this.changeCurrency = this.changeCurrency.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -51,23 +51,29 @@ class App extends PureComponent {
       })
     );
   }
-  
+
   displayCategory = (name) => this.setState({ chosenCategory: name });
-  
+
   chooseProduct = (name) => {
     localStorage.setItem("product", name);
     this.setState({ displayProduct: localStorage.getItem("product") });
-  }
+  };
 
-  changeCurrency = (key) => this.setState({chosenCurrency: key});
+  changeCurrency = (key) => this.setState({ chosenCurrency: key });
 
-  addToCart = (item) => this.setState({cart: [...this.state.cart, item]}, () => {
+  addToCart = (item) => {
+    let sameItem = this.state.cart.find(i => i===item)
+    
+    sameItem
+      ? sameItem.quantity++
+      : this.setState({ cart: [...this.state.cart, item] }, () => {
+        console.log(this.state.cart, sameItem);
+      }); 
+
     console.log(this.state.cart)
-  })
-  
+  };
 
   render() {
-    
     if (!this.state.categories.length) {
       return <h1>loading...</h1>;
     }
@@ -100,7 +106,12 @@ class App extends PureComponent {
             />
             <Route
               path="products"
-              element={<ProductPage state={this.state} onClick={() => console.log(this.state.cart)} />}
+              element={
+                <ProductPage
+                  state={this.state}
+                  onClick={() => console.log(this.state.cart)}
+                />
+              }
             />
             <Route path="cart" element={<CartPage />} />
             <Route path="*" element={<NoPage />} />

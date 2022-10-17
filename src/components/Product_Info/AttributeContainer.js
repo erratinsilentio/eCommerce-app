@@ -19,6 +19,7 @@ class Attribute extends PureComponent {
         <div className="attribute">{attribute.id.toUpperCase()}:</div>
         <div className="attribute-buttons">
           {attribute.items.map((item) => {
+            {/* RENDER ATTRIBUTE BUTTON WITH DIFFERENT STYLE IF IT'S A COLOR */}
             if (type === "Color") {
               return (
                 <AttributeButton
