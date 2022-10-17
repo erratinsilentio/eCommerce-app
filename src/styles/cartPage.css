@@ -1,0 +1,102 @@
+.cart-title {
+  height: 15vh;
+  padding-left: 6%;
+  line-height: 15vh;
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+.content-cont {
+  outline: 1px solid black;
+  width: 100%;
+  height: 60vh;
+}
+
+.ci-cont {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ci-info-cont {
+  outline: 1px solid black;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ci-title-cont{
+    outline: 1px solid black;
+    width: 100%;
+    height: 30%; 
+}
+
+
+.ci-title-brand{
+    outline: 1px solid black;
+    width: 100%;
+    height: 50%; 
+}
+
+.ci-title-name{
+    outline: 1px solid black;
+    width: 100%;
+    height: 50%; 
+}
+
+.ci-price-cont{
+    outline: 1px solid black;
+    width: 100%;
+    height: 20%;
+}
+
+.ci-atr-cont{
+    outline: 1px solid black;
+    width: 100%;
+    height: 50%;
+}
+
+.ci-quantity-cont {
+  outline: 1px solid black;
+  width: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quant-btn{
+    width: 100%;
+    height: 15%;
+    border: 0px;
+    outline: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.quant-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.ci-image-cont {
+  outline: 1px solid black;
+  width: 25%;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ci-img {
+  width: auto;
+  height: 100%;
+}

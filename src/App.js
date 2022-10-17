@@ -113,7 +113,7 @@ class App extends PureComponent {
                 />
               }
             />
-            <Route path="cart" element={<CartPage />} />
+            <Route path="cart" element={<CartPage state={this.state}/>} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

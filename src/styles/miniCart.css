@@ -65,6 +65,9 @@
     width: 45%;
     height: 100%;
     outline: 1px solid black; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .ci-quantity-container{
@@ -95,14 +98,24 @@
     outline: 1px solid black;
 }
 
-.title{
-
+.ci-title{
+    outline: 1px solid green;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
 }
 
 .brand{
-
+    outline: 1px solid black;
+    font-size: small;
+    height: 40%;
 }
 
 .name{
-
+    outline: 1px solid red;
+    font-size: small;
+    height: 40%;
 }

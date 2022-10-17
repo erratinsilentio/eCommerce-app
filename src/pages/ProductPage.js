@@ -22,6 +22,7 @@ class ProductPage extends PureComponent {
         price: null,
         currency: "",
         attributes: [],
+        gallery: "",
         quantity: 0,
       },
     };
@@ -45,6 +46,7 @@ class ProductPage extends PureComponent {
           name: result.name,
           price: result.prices[this.state.currency].amount,
           currency: result.prices[this.state.currency].currency.label,
+          gallery: result.gallery[0],
           quantity: 1,
         },
       })

@@ -19,8 +19,8 @@ class CartProduct extends PureComponent {
       <div className="cart-items-container">
         <div className="ci-info-container">
           <div className="ci-title">
-            <div className="brand"></div>
-            <div className="name"></div>
+            <div className="brand">{cart[0].brand}</div>
+            <div className="name">{cart[0].name}</div>
           </div>
           
         </div>
